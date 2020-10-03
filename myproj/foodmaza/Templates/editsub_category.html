@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="col-lg-12">
+  <div class="card">
+    <div class="card-header">
+      <strong>Sub_category</strong> Update
+    </div>
+    <form method="POST" class="post-form" action="/subcategory_update/{{Sub_category.S_Id}}">
+      <div class="card-body card-block">
+        {% csrf_token %}
+
+        <select id="Category" name="Category">
+          {% for Category in categorys %}
+          <option value="{{ Category.C_Id }}">{{ Category.Name }}</option>
+          {% endfor %}
+        </select>
+
+        <div class="row form-group">
+          <div class="col col-md-3">
+
+            <!-- <select id="Category" name="Category">
+              {% for Category in categorys %}
+              <option value="{{ Category.C_Id }}">{{ Category.Name }}</option>
+              {% endfor %}
+            </select> -->
+
+            <label for="Category Name" class=" form-control-label">Sub_category Name</label>
+          </div>
+          <div class="col-12 col-md-9">
+            <input type="text" name="Name" id="id_Name" required maxlength="100" value="{{ Sub_category.Name }}"
+              class="form-control">
+            <span class="help-block">Please enter your Sub_category Name</span>
+          </div>
+        </div>
+
+     </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary btn-sm">
+        <i class="fa fa-dot-circle-o"></i> Submit
+      </button>
+    </div>
+  </form>
+    
+  </div>
+  {% endblock %}

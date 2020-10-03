@@ -1,0 +1,44 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+												<th>Name</th>
+												<th>DOB</th>
+												<th>Email</th>
+												<th>Phone</th>
+												<th>Gender</th>
+												<th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+										{% for Customer in Customers %}
+											<tr>
+												<td>{{ Customer.Name }}</td>
+												<td>{{ Customer.DOB }}</td>
+												<td>{{ Customer.Email }}</td>
+												<td>{{ Customer.Phone }}</td>
+												<td>{{ Customer.Gender }}</td>
+												<td>
+													<a href="/editcustomer/{{ Customer.id }}" class="btn btn-primary a-btn-slide-text">
+														<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+														<span><strong>Edit</strong></span>            
+													</a>
+													<a href="/custdelete/{{ Customer.id }}" class="btn btn-primary a-btn-slide-text">
+														<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+														 <span><strong>Delete</strong></span>            
+													 </a>
+												</td>
+											</tr>
+										{% endfor %}
+
+									   </tbody>
+									</table>
+											<center><a href="/addcustomer" class="btn btn-primary a-btn-slide-text">
+												<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+												<span><strong>Add</strong></span>
+											</a></center>
+                                </div>
+{% endblock %}

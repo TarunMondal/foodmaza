@@ -1,0 +1,46 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+												<th>Item_id</th>
+												<th>Item_name</th>
+												<th>Item_image</th>
+												<th>Discription</th>
+												<th>Price</th>
+												<th>S_Id</th>
+												<th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+										{% for item in items %}
+                                            <tr>
+                                                <td>{{ item.Item_id }}</td>
+												<td>{{ item.Item_name }}</td>
+												<td><img src="{{MEDIA_URL}}{{ item.Item_image }}" height="50px" width="50px"></td>
+												<td>{{ item.Discription }}</td>
+												<td>{{ item.Item_price }}</td>
+												<td>{{ item.S_Id_id }}</td>
+												<td>
+													<a href="/edititem/{{ item.Item_id }}" class="btn btn-primary a-btn-slide-text">
+														<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+														<span><strong>Edit</strong></span>            
+													</a>
+													<a href="/itemdelete/{{ item.Item_id }}" class="btn btn-primary a-btn-slide-text">
+														<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+														 <span><strong>Delete</strong></span>            
+													 </a>
+												</td>
+                                                
+                                            </tr>
+                                       {% endfor %}
+									   </tbody>
+									</table>
+									<center><a href="/additem" class="btn btn-primary a-btn-slide-text">
+										<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+										<span><strong>Add</strong></span>
+									</a></center>
+                                </div>
+{% endblock %}  

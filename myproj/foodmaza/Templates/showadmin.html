@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Admin Records</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" />
+</head>
+
+<body>
+    <table class="table table-striped table-bordered table-sm">
+        <thead class="thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>DOB</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Gender</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for Admin in admins %}
+            <tr>
+                <td>{{ Admin.Name }}</td>
+                <td>{{ Admin.DOB|date:"d-m-Y" }}</td>
+                <td>{{ Admin.Email }}</td>
+                <td>{{ Admin.Phone }}</td>
+                <td>{{ Admin.Gender }}</td>
+                <td>
+                    <a href="/editadmin/{{ Admin.id }}"><span class="glyphicon glyphicon-pencil">Edit</span></a>
+                    <a href="/delete/{{ Admin.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <br>
+    <center><a href="/addadmin" class="btn btn-primary">Add New Record</a></center>
+</body>
+
+</html>

@@ -1,0 +1,40 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+												<th>S_Id</th>
+												<th>Name</th>
+												<th>C_Id</th>
+												<th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+										{% for S_category in Sub_categorys %}
+                                            <tr>
+                                                <td>{{ S_category.S_Id }}</td>
+												<td>{{ S_category.Name }}</td>
+												<td>{{ S_category.C_Id_id }}</td>
+											
+												<td>
+													<a href="/editsub_category/{{ S_category.S_Id }}" class="btn btn-primary a-btn-slide-text">
+														<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+														<span><strong>Edit</strong></span>            
+													</a>
+													<a href="/subcategory_delete/{{ S_category.S_Id }}" class="btn btn-primary a-btn-slide-text">
+														<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+														<span><strong>Delete</strong></span>            
+													</a>
+												</td>
+											</tr>
+                                       {% endfor %}
+									   </tbody>
+                                    </table>
+											<center><a href="/addsub_category" class="btn btn-primary a-btn-slide-text">
+												<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+												<span><strong>Add</strong></span>
+											</a></center>
+                                </div>
+{% endblock %}

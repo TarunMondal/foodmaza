@@ -1,0 +1,32 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="col-lg-12">
+  <div class="card">
+    <div class="card-header">
+      <strong>Category</strong> Details
+    </div>
+    <form method="POST" class="post-form" action="">
+      <div class="card-body card-block">
+        {% csrf_token %}
+        <div class="row form-group">
+          <div class="col col-md-3">
+            <label for="Category Name" class=" form-control-label">Category Name</label>
+          </div>
+          <div class="col-12 col-md-9">
+            <input type="text" name="Name" id="id_Name" 
+              class="form-control">
+            <span class="help-block">Please enter your Category Name</span>
+          </div>
+        </div>
+
+     </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-primary btn-sm">
+        <i class="fa fa-dot-circle-o"></i> Submit
+      </button>
+    </div>
+  </form>
+    
+  </div>
+  {% endblock %}

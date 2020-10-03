@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sub_Category Records</title>
+     {% load static %}
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+</head>
+<body>
+<table class="table table-striped table-bordered table-sm">
+    <thead class="thead-dark">
+    <tr>
+        <th>S_Id</th>
+        <th>Name</th>
+        <th>C_Id</th>
+    </thead>
+    <tbody>
+{% for S_category in Sub_categorys %}
+    <tr>
+        <td>{{ S_category.S_Id }}</td>
+        <td>{{ S_category.Name }}</td>
+        <td>{{ S_category.C_Id_id }}</td>
+        <td>
+            <a href="/editsub_category/{{ S_category.S_Id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>
+            <a href="/subcategory_delete/{{ S_category.S_Id }}">Delete</a>
+        </td>
+    </tr>
+{% endfor %}
+    </tbody>
+</table>
+<br>
+<br>
+<center><a href="/addsub_category" class="btn btn-primary">Add New Record</a></center>
+</body>
+</html>

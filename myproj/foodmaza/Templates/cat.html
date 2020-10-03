@@ -1,0 +1,38 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="table-responsive m-b-40">
+                                    <table class="table table-borderless table-data3">
+                                        <thead>
+                                            <tr>
+												<th>C_Id</th>
+												<th>Name</th>
+												<th>Actions</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+										{% for Category in Categorys %}
+											<tr>
+												<td>{{ Category.C_Id }}</td>
+												
+												<td>{{ Category.Name }}</td>
+												<td>
+													<a href="/editcategory/{{ Category.C_Id }}" class="btn btn-primary a-btn-slide-text">
+														<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+														<span><strong>Edit</strong></span>            
+													</a>
+													<a href="/categorydelete/{{ Category.C_Id }}" class="btn btn-primary a-btn-slide-text">
+														<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+														 <span><strong>Delete</strong></span>            
+													 </a>
+												</td>
+											</tr>
+										{% endfor %}
+									   </tbody>
+									</table>
+											<center><a href="/addcategory" class="btn btn-primary a-btn-slide-text">
+												<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+												<span><strong>Add</strong></span>
+											</a></center>
+                                </div>
+{% endblock %}

@@ -1,0 +1,78 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="col-lg-12">
+  <div class="card">
+    <div class="card-header">
+      <strong>Customer</strong> Update
+    </div>
+    <form method="POST" class="post-form" action="/custupdate/{{Customer.id}}">
+      <div class="card-body card-block">
+        {% csrf_token %}
+        <div class="row form-group">
+
+          <div class="col col-md-3">
+            <label for="Name" class=" form-control-label">Name</label>
+          </div>
+          <div class="col-12 col-md-9">
+            <input type="text" name="Name" id="id_Name" required maxlength="100" value="{{ Customer.Name }}"
+              class="form-control">
+            <span class="help-block">Please enter your Name</span>
+          </div>
+
+          <div class="col col-md-3">
+            <label for="DOB" class=" form-control-label">DOB</label>
+          </div>
+          <div class="col-12 col-md-9">
+            <input type="date" name="DOB" id="id_DOB" required maxlength="20" value="{{ Customer.DOB }}"
+              class="form-control">
+            <span class="help-block">Please enter your DOB</span>
+          </div>
+
+          <div class="col col-md-3">
+            <label for="Email" class=" form-control-label">Email</label>
+          </div>
+          <div class="col-12 col-md-9">
+            <input type="email" name="Email" id="id_Email" required maxlength="254" value="{{ Customer.Email }}"
+              class="form-control">
+            <span class="help-block">Please enter your Email</span>
+          </div>
+
+          <div class="col col-md-3">
+            <label for="Password" class=" form-control-label">Password</label>
+          </div>
+          <div class="col-12 col-md-9">
+            <input type="password" name="Password" id="id_Password" required maxlength="20"value="{{ Customer.Password }}"
+            class="form-control">
+            <span class="help-block">Please enter your Password</span>
+          </div>
+
+          <div class="col col-md-3">
+            <label for="Phone" class=" form-control-label">Phone</label>
+          </div>
+          <div class="col-12 col-md-9">
+            <input type="text" name="Phone" id="id_Phone" required maxlength="15" value="{{ Customer.Phone }}"
+              class="form-control">
+            <span class="help-block">Please enter your Phone</span>
+          </div>
+
+          <div class="col col-md-3">
+            <label for="Gender" class=" form-control-label">Gender</label>
+          </div>
+          <div class="col-12 col-md-9">
+            <input type="text" name="Gender" id="id_Gender" required maxlength="15" value="{{ Customer.Gender }}"
+              class="form-control">
+            <span class="help-block">Please enter your Gender</span>
+          </div>
+        </div>
+
+      </div>
+      <div class="card-footer">
+        <button type="submit" class="btn btn-primary btn-sm">
+          <i class="fa fa-dot-circle-o"></i> Submit
+        </button>
+      </div>
+    </form>
+
+  </div>
+  {% endblock %}

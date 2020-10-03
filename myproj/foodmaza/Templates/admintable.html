@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+{% block content %}
+
+<div class="table-responsive m-b-40">
+	<table class="table table-borderless table-data3">
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>DOB</th>
+				<th>Email</th>
+				<th>Phone</th>
+				<th>Gender</th>
+				<th>Actions</th>
+			</tr>
+		</thead>
+		<tbody>
+			{% for Admin in admins %}
+			<tr>
+				<td>{{ Admin.Name }}</td>
+				<td>{{ Admin.DOB|date:"d-m-Y" }}</td>
+				<td>{{ Admin.Email }}</td>
+				<td>{{ Admin.Phone }}</td>
+				<td>{{ Admin.Gender }}</td>
+				<td>
+					<a href="/editadmin/{{ Admin.id }}" class="btn btn-primary a-btn-slide-text">
+						<span class="glyphicon glyphicon-edit" aria-hidden="true"></span>
+						<span><strong>Edit</strong></span>            
+					</a>
+					<a href="/delete/{{ Admin.id }}" class="btn btn-primary a-btn-slide-text">
+						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
+						 <span><strong>Delete</strong></span>            
+					 </a>
+				</td>
+			</tr>
+			{% endfor %}
+		</tbody>
+	</table>
+	<center><a href="/addadmin" class="btn btn-primary a-btn-slide-text">
+			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+			<span><strong>Add</strong></span>
+		</a></center>
+</div>
+{% endblock %}
